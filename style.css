@@ -132,3 +132,13 @@ main {
 .key.wide {
   grid-column: span 2;
 }
+
+@media screen and (orientation: portrait) {
+  .key{
+    padding: 4px;
+  }
+
+  main{
+    padding: 1px 3px;
+  }
+}
