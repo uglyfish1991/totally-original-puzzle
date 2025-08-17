@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Uni Buddy Word Puzzle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Very Original Word Puzzle Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <main>
-  <h1>Uni Buddy Word Puzzle</h1>
-  <p>You've never played a game like it!</p>
-  <div id="game-board"></div>
-  <div id="keyboard"></div>
-  <p id="message"></p>
-</main>
+    <h1>The Very Original Word Puzzle Game</h1>
+    <p>You've never played a game like it!</p>
+    <div id="game-board"></div>
+    <div id="keyboard"></div>
+    <p id="message"></p>
+  </main>
+  <section id="overlay">
+    <h1>Uni Buddy Word Puzzle</h1>
+    <p>The rules!</p>
+    <p>Use your keyboard or the on screen keyboard to guess the secret 5-letter word hiding under the tiles. You've got
+      6 guesses. Pay attention to the colour of the borders, they're there to help:</p>
+    <ul>
+      <li>
+        🟩 Green border: Nailed it. Right letter, right spot.
+      </li>
+      <li>
+        🟨 Yellow border: Almost! The letter is in the word, just not at that spot.
+      </li>
+      <li>
+        ⬛ Black border: Nope. That letter didn't get the grades to join in.
+      </li>
+    </ul>
+<p>
+  Letters can show up more than once — just to keep things fun.
+</p>
+<p>
+  🔍Each week has a theme! See if you can spot them!
+</p>
+<p>
+  Good luck!
+</p>
+    
+    <button id="hideOverlayButton">Click to Play!</button>
+  </section>
   <script src="script.js"></script>
 </body>
+
 </html>

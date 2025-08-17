@@ -6,10 +6,10 @@
 // #-------------------------------------------------------------------------------# 
 
 const word_options = [
-    "lenny", "quail", "order", "rigby", "bevvy", "sound", "liver",
-    "ferry", "music", "halls", "camps", "clear", "goose", "atoms",
-    "tesco", "train", "figgy", "purse", "cress", "onion", "radio",
-    "viola", "plant", "salts", "herbs", "sugar", "tango", "grain"
+    "river", "beach", "docks", "sound", "metro", "parks", "birds",
+    "study", "books", "tutor", "essay", "grade", "learn", "paper",
+    "stage", "ringo", "tours", "music", "drums", "rigby", "radio",
+    "oscar", "halls", "booth", "julie", "fresh", "union", "kitty"
 ];
 
 const keys = [
@@ -22,7 +22,7 @@ const keys = [
 // # "Day zero" to determine the word from                                         #
 // #-------------------------------------------------------------------------------# 
 
-const startDate = new Date("2025-08-01T00:00:00Z");
+const startDate = new Date("2025-08-18T00:00:00Z");
 const now = new Date();
 const msPerDay = 1000 * 60 * 60 * 24;
 const daysSinceStart = Math.floor((now - startDate) / msPerDay);
@@ -48,6 +48,8 @@ const wordLength = 5;
 
 const board = document.getElementById("game-board");
 const message = document.getElementById("message");
+const readyButton = document.getElementById("hideOverlayButton");
+const overlay = document.getElementById("overlay");
 
 let currentRow = 0;
 let currentGuess = "";
@@ -168,6 +170,7 @@ function updateRow() {
 
 
 function submitGuess() {
+
     const row = board.children[currentRow];
     const guess = currentGuess.toUpperCase();
     const target = wordOfTheDay.toUpperCase();
@@ -176,6 +179,8 @@ function submitGuess() {
     for (let char of target) {
         letterCount[char] = (letterCount[char] || 0) + 1;
     }
+        const box = row.children[4];
+        box.classList.remove("current-square");
 
     for (let i = 0; i < wordLength; i++) {
         const box = row.children[i];
@@ -306,6 +311,17 @@ function handleVirtualKey(key) {
     }
 }
 
+// #-------------------------------------------------------------------------------#
+// # Hides the overlay on click so the users can play by setting display: none;    #
+// #-------------------------------------------------------------------------------# 
+
+function hideOverlay(){
+    overlay.classList.add("overlay-hidden");
+}
+
+
+
 createBoard();
 createKeyboard();
 document.addEventListener("keydown", handleKeyPress);
+readyButton.addEventListener("click",()=>hideOverlay());
